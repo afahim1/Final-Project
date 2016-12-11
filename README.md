@@ -46,22 +46,35 @@ public class CheckingAccount extends BankAccount {
 	private int checkNumber;
 	
 	public CheckingAccount(String name, double rate){
+	
 		super(name);
+		
 		if (Check > 0)
+		
 			double checkNum;
+			
 		else 
+		
 			checkNum = 1000;
+			
 		
 	}
+	
 	public int getcheckNum(){
+	
 		return Ckeck;
 	}
+	
 	public String toString(){
+	
 		return String;
+		
 	}
 	
 	public void writeCheck(){
+	
 		return checkNum;
+		
 	}
 
 }
@@ -69,100 +82,148 @@ public class CheckingAccount extends BankAccount {
 
 
 // Abdul Majid Fahim
+
 // 10614742
+
 // PA13
+
 // 
 public class Bank {
 
 	private BankAccount[] accounts;
+	
 	private int count;
 
 	public Bank(int cap) {
+	
 		accounts = new BankAccount[cap];
+		
 		count = 0;
 	}
 
 	private int indexOf(BankAccount a) {
+	
 		for (int i = 0; i < count; i++) {
+		
 			if (accounts[i].equals(a))
+			
 				return i;
 		}
+		
 		return -1;
 	}
 
 	public boolean contains(BankAccount a) {// show to dr.v
+	
 		if (indexOf(a) != -1)
+		
 			return true;
+			
 		else
 			return false;
+			
 		// return indexOf(a) != -1;
 	}
 
 	public boolean add(BankAccount a) {
+	
 		if (contains(a))
+		
 			return false;
 
 		if (full())
+		
 			doubleCapacity();
 
 		accounts[count] = a;
+		
 		count++;
+		
 		return true;
 	}
 
 	public boolean remove(BankAccount a) {
+	
 		if (!contains(a))
+		
 			return false;
+			
 		int mama = indexOf(a);
 
 		accounts[mama] = accounts[count - 1];
+		
 		accounts[count - 1] = null;
+		
 		count--;
+		
 		return true;
+		
 
 	}
 
 	public int getCount() {
+	
 		return count;
+		
 	}
 
 	public String toString() {
+	
 		StringBuilder sb = new StringBuilder();
+		
 		sb.append("Bank Accounts\n");
+		
 		for (BankAccount a : accounts)
+		
 			sb.append(a + "\n    **************    \n");
+			
 		return sb.toString();
 	}
 
 	public void sort() {
+	
 		for (int i = 0; i < count - 1; i++) {
+		
 			int I = i;
+			
 			for (int j = i + 1; j < count; j++)
+			
 				if (accounts[j].getAcctNum() < accounts[I].getAcctNum())
+				
 					I = j;
 
 			BankAccount smallerAccount = accounts[I];
+			
 			accounts[I] = accounts[i];
+			
 			accounts[i] = smallerAccount;
 		}
 
 	}
 
 	private void doubleCapacity() {
+	
 		BankAccount[] temp = accounts;
+		
 		accounts = new BankAccount[temp.length * 2];
+		
 		for (int i = 0; i < temp.length; i++)
+		
 			accounts[i] = temp[i];
 	}
 
 	private boolean full() {
+	
 		return count >= accounts.length;
 	}
 	public BankAccount find(int acct) { for (int i = 0; i < count; i++)
+	
 		if (accounts[i].getAcctNum() == acct) return accounts[i]; return null;
 		}
 		private int indexOf1(BankAccount a) { if (a == null) return -1;
+		
 		for (int i = 0; i < count; i++)
+		
 		if (accounts[i].equals(a)) return i; return -1;
 		}
 		
