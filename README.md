@@ -323,18 +323,29 @@ public class BankTeller {
 
 	// private static
 public static void main (String [] args) {
+
 	char command;
+	
 	Scanner input = new Scanner(System.in);
+	
 	printMenu();
+	
     do {
+    
     	System.out.println("\nPlease enter a command or type ?");
+	
     	command = input.nextLine().toLowerCase().charAt(0);
     	
     	switch (command) {
+	
     	case 'a':
+	
     	int savingaccountOrCheckingaccount = -1;
+	
     	while (savingaccountOrCheckingaccount < 1 || savingaccountOrCheckingaccount > 2){
+	
     		System.out.println("Enter 1 for Savings Account or 2 for Checking Account: ");
+		
     		savingaccountOrCheckingaccount = Integer.parseInt(input.nextLine());
     	
     	
@@ -415,8 +426,11 @@ public static void main (String [] args) {
 
 
 public class TestBankAccount {
+
 	public static void main(String[] args) {
+	
 		BankAccount b = new BankAccount("t=yomamma");
+		
 		System.out.println(b.toString());
 	}
 
